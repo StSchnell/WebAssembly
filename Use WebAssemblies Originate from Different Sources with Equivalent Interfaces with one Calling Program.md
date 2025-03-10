@@ -94,7 +94,7 @@ Both Wasm files have the same interface, with the exception of the free function
 
 ## Call with Rhino JavaScript
 
-[Rhino](https://github.com/mozilla/rhino) is an open-source implementation of JavaScript written entirely in Java. It is great for rapid prototyping and is a component of many products.
+[Rhino](https://github.com/mozilla/rhino) is an open-source implementation of JavaScript written entirely in Java. It is great for rapid prototyping and is a [component of many products](https://github.com/mozilla/rhino/discussions/1425).
 
 The following code contains in the executeWasm function several steps. The Wasm is instantiated and the functions are determined. At the add functions the parameters can be passed directly. At the hello function the memory, for the parameter and the return value, must be allocated first and then the parameter is set. The functions are executed and the return value is read. Finally the allocated memory is released.
 The call is made via a loop in the main function, which passes the C Wasm file and the Rust Wasm file.
