@@ -2,6 +2,8 @@
 
 This article focuses on the development of WebAssemblies (Wasm) with equivalent interfaces, but with different compilers. Their uniform use is also considered, with one calling program. For this purpose as examples a Wasm is coded in C and compiled via [emscripten](https://emscripten.org/) and another Wasm in [Rust](https://www.rust-lang.org/). Both Wasm files have the same interface. On this way the Wasm file can be exchanged. This means that both, the C Wasm and the Rust Wasm file, can be used with the same calling program, in this case on Java base via [Chicory](https://chicory.dev/). This implementation shows that with a clever definition of the interface to the Wasm functions, the programming language or tool chain is irrelevant, which has built the Wasm. One calling program can be used to call Wasm functions that originate from different sources.
 
+![image](https://github.com/user-attachments/assets/32078ccd-28a1-4a5c-92d4-a6db6539e6c6)
+
 The examples that have been chosen are simple. It is not the function that is important here. What is important are the interfaces used.
 
 ## C Code
