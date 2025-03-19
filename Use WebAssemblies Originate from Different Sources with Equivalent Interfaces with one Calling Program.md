@@ -239,5 +239,5 @@ jshell wasmTest.jsh
 
 ## Conclusion
 
-A smart definition of functions and their interfaces of a Wasm can ensure simple interchangeability, regardless of the origin of the Wasm. With emscripten it is very easy to convert C / C++ functions into Wasm. With Rust it is possible to build new developments and compile it into Wasm too. With Chicory it is very easy to test or use these Wasm files. This makes it easy to combine existing code and new functionalities.
+A smart definition of functions and their interfaces of a Wasm can ensure simple interchangeability, regardless of the origin of the Wasm. With emscripten it is very easy to convert C / C++ functions into Wasm. With Rust it is possible to build new developments and compile it into Wasm too. With Chicory it is very easy to test or use these Wasm files. This makes it easy to combine existing code and new functionalities. And the equivalent interface approach makes it possible to exchange Wasm files, regardless which compiler they were built with.
 
