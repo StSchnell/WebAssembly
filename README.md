@@ -15,3 +15,5 @@ By standardizing the interfaces of WebAssembly modules, that were created with d
 ### Code
 
 If the code is saved in independent files, e.g. C header files which are included at building, it can be used from different frameworks or tool chains. This allows us to build a standardized code base, which is bound to the programming language.
+
+* [Example how to build a Wasm module from a single source with different frameworks](https://github.com/StSchnell/WebAssembly/blob/main/One%20C%20Header%20Files%20for%20Using%20in%20Different%20WebAssembly%20Runtime%20Environments.md)
