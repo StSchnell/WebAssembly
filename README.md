@@ -4,7 +4,7 @@ This section presents development approaches for [WebAssembly (Wasm)](https://we
 
 ## Optimization Scenarios for Development
 
-The current variety of different possibilities for building WebAssembly modules also leads to a variety of individual programming approaches. The use of a individual framework or tool chain can also lead to a dependency, if building and using it is only possible with it. This simplifies development, but the WebAssembly module loses its independence and is bound to the framework or tool chain used. Therefore approaches will be presented here that can be used to mitigate these restrictions.
+The current variety of different possibilities for building WebAssembly modules also leads to a variety of individual programming approaches. The use of an individual framework or tool chain can also lead to a dependency, if building and using it is only possible with it. This simplifies development, but the WebAssembly module loses its independence and is bound to the framework or tool chain used. Therefore approaches will be presented here that can be used to mitigate these restrictions.
 
 ### Interfaces
 
