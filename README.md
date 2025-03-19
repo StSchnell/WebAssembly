@@ -10,7 +10,7 @@ The current variety of different possibilities for building WebAssembly modules 
 
 By standardizing the interfaces of WebAssembly modules, that were created with different frameworks or tool chains, uniform calls can be made.
 
-* [Example how to build C and Rust code to achieve a standardized interface](https://github.com/StSchnell/WebAssembly/blob/main/Use%20WebAssemblies%20Originate%20from%20Different%20Sources%20with%20Equivalent%20Interfaces%20with%20one%20Calling%20Program.md)
+* [Example how to build C and Rust code with a standardized interface](https://github.com/StSchnell/WebAssembly/blob/main/Use%20WebAssemblies%20Originate%20from%20Different%20Sources%20with%20Equivalent%20Interfaces%20with%20one%20Calling%20Program.md)
 
 ### Code
 
