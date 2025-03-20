@@ -3,6 +3,8 @@
 
 This article describes the development of WebAssembly (Wasm) with the same code, but with different frameworks. For this purpose the code to be shared is stored in an external file, which is included during compilation. In this example the programming language C and the frameworks [Emscripten](https://emscripten.org/) and [Extism](https://extism.org/) are used. The code to be used is stored in a header file and with the frameworks a wrapper is built around this functions.
 
+![Approach of one header file for different runtimes](https://github.com/StSchnell/WebAssembly/blob/main/images/wasmOneHeaderDifferentRuntimes.png)
+
 ## Shared Header File
 
 In this example the header file contains only one function, named _hello. It delivers a Hello World message, depending on whether a name is passed as a parameter. If a name is passed it is used, otherwise a standard text.
