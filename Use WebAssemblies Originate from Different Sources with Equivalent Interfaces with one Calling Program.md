@@ -1,6 +1,6 @@
 # Use WebAssemblies Originate from Different Sources with Equivalent Interfaces with one Calling Program
 
-This article focuses on the development of WebAssemblies (Wasm) with equivalent interfaces, but with different compilers. Their uniform use is also considered, with one calling program. For this purpose as examples a Wasm is coded in C and compiled via [emscripten](https://emscripten.org/) and another Wasm in [Rust](https://www.rust-lang.org/). Both Wasm files have the same interface. On this way the Wasm file can be exchanged. This means that both, the C Wasm and the Rust Wasm file, can be used with the same calling program, in this case on Java base via [Chicory](https://chicory.dev/). This implementation shows that with a clever definition of the interface to the Wasm functions, the programming language or tool chain is irrelevant, which has built the Wasm. One calling program can be used to call Wasm functions that originate from different sources.
+This article focuses on the development of WebAssemblies (Wasm) with equivalent interfaces, but with different compilers. Their uniform use is also considered, with one calling program. For this purpose as examples a Wasm is coded in C and compiled via [emscripten](https://emscripten.org/) and another Wasm in [Rust](https://www.rust-lang.org/). Both Wasm files have the same interface. On this way the Wasm file can be exchanged. This means that both, the C Wasm and the Rust Wasm file, can be used with the same calling program, in this case on Java base via [Chicory](https://chicory.dev/) and TypeScript base with [Deno](https://deno.com/). This implementation shows that with a clever definition of the interface to the Wasm functions, the programming language or tool chain is irrelevant, which has built the Wasm. One calling program can be used to call Wasm functions that originate from different sources.
 
 ![Approach of standardized interfaces](https://github.com/StSchnell/WebAssembly/blob/main/images/wasmStandardizesInterface.png)
 
@@ -235,6 +235,75 @@ main();
 
 ```
 jshell wasmTest.jsh
+```
+
+## Call with Deno
+
+[Deno](https://github.com/denoland/deno) is a modern runtime for JavaScript, [TypeScript](https://github.com/microsoft/TypeScript) and WebAssembly.
+
+```typescript
+async function executeWasm(fileName: string): void {
+
+  const wasmCode: Uint8Array = await Deno.readFile(fileName);
+  const wasmModule = new WebAssembly.Module(wasmCode);
+  const wasmInstance = new WebAssembly.Instance(wasmModule);
+  const { add, subtract, hello, malloc, free } = wasmInstance.exports;
+
+  const memory: WebAssembly.Memory = wasmInstance.exports.memory;
+  if (memory.buffer.byteLength < (256 * 65536)) {
+    const diff: number = (256 * 65536) - memory.buffer.byteLength;
+    const pages: number = Math.floor(diff / 65536);
+    memory.grow(pages);
+  }
+
+  const addResult: number = add(17, 25);
+  console.log(addResult);
+
+  const subResult: number = subtract(32, 16);
+  console.log(subResult);
+
+  const name: Uint8Array = (new TextEncoder()).encode("Stefan");
+  const ptrName: number = malloc(name.length);
+
+  const mem = new DataView(memory.buffer);
+  for (let i = 0; i < name.length; i++) {
+    mem.setUint8(ptrName + i,  name[i] || 0)
+  }
+
+  const ptrResult: number = malloc(128);
+
+  hello(ptrName, name.length, ptrResult);
+
+  let end: number = ptrResult;
+  while (mem.getUint8(end) !== 0) {
+    end++
+  }
+
+  console.log(
+    (new TextDecoder()).decode(mem.buffer.slice(ptrResult, end))
+  );
+
+  free(ptrResult);
+  free(ptrName);
+
+}
+
+async function main(): void {
+
+  const wasmNames: string[] = [
+    "wasmTest2.rs.wasm",  // (memory (;0;) 17)
+    "wasmTest2.c.wasm"    // (memory (;0;) 258 258)
+  ]
+
+  wasmNames.forEach( function(wasmName: string): void {
+    executeWasm(wasmName);
+  });
+
+}
+
+console.log("\n>>> Deno version", Deno.version.deno, " <<<\n");
+
+main();
 ```
 
 ## Conclusion
