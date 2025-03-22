@@ -289,16 +289,13 @@ async function executeWasm(fileName: string): void {
 }
 
 function main(): void {
-
   const wasmNames: string[] = [
     "wasmTest2.rs.wasm",  // (memory (;0;) 17)
     "wasmTest2.c.wasm"    // (memory (;0;) 258 258)
   ]
-
   wasmNames.forEach( function(wasmName: string): void {
     executeWasm(wasmName);
   });
-
 }
 
 main();
