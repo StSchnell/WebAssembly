@@ -244,47 +244,53 @@ jshell wasmTest.jsh
 ```typescript
 async function executeWasm(fileName: string): void {
 
-  const wasmCode: Uint8Array = await Deno.readFile(fileName);
-  const wasmModule = new WebAssembly.Module(wasmCode);
-  const wasmInstance = new WebAssembly.Instance(wasmModule);
-  const { add, subtract, hello, malloc, free } = wasmInstance.exports;
+  try {
 
-  const memory: WebAssembly.Memory = wasmInstance.exports.memory;
-  if (memory.buffer.byteLength < (256 * 65536)) {
-    const diff: number = (256 * 65536) - memory.buffer.byteLength;
-    const pages: number = Math.floor(diff / 65536);
-    memory.grow(pages);
+    const wasmCode: Uint8Array = await Deno.readFile(fileName);
+    const wasmModule = new WebAssembly.Module(wasmCode);
+    const wasmInstance = new WebAssembly.Instance(wasmModule);
+    const { add, subtract, hello, malloc, free } = wasmInstance.exports;
+
+    const memory: WebAssembly.Memory = wasmInstance.exports.memory;
+    if (memory.buffer.byteLength < (256 * 65536)) {
+      const diff: number = (256 * 65536) - memory.buffer.byteLength;
+      const pages: number = Math.floor(diff / 65536);
+      memory.grow(pages);
+    }
+
+    const addResult: number = add(17, 25);
+    console.log(addResult);
+
+    const subResult: number = subtract(32, 16);
+    console.log(subResult);
+
+    const name: Uint8Array = (new TextEncoder()).encode("Stefan");
+    const ptrName: number = malloc(name.length);
+
+    const mem = new DataView(memory.buffer);
+    for (let i = 0; i < name.length; i++) {
+      mem.setUint8(ptrName + i,  name[i] || 0)
+    }
+
+    const ptrResult: number = malloc(128);
+
+    hello(ptrName, name.length, ptrResult);
+
+    let end: number = ptrResult;
+    while (mem.getUint8(end) !== 0) {
+      end++
+    }
+
+    console.log(
+      (new TextDecoder()).decode(mem.buffer.slice(ptrResult, end))
+    );
+
+    free(ptrResult);
+    free(ptrName);
+
+  } catch(exception) {
+    console.log(exception);
   }
-
-  const addResult: number = add(17, 25);
-  console.log(addResult);
-
-  const subResult: number = subtract(32, 16);
-  console.log(subResult);
-
-  const name: Uint8Array = (new TextEncoder()).encode("Stefan");
-  const ptrName: number = malloc(name.length);
-
-  const mem = new DataView(memory.buffer);
-  for (let i = 0; i < name.length; i++) {
-    mem.setUint8(ptrName + i,  name[i] || 0)
-  }
-
-  const ptrResult: number = malloc(128);
-
-  hello(ptrName, name.length, ptrResult);
-
-  let end: number = ptrResult;
-  while (mem.getUint8(end) !== 0) {
-    end++
-  }
-
-  console.log(
-    (new TextDecoder()).decode(mem.buffer.slice(ptrResult, end))
-  );
-
-  free(ptrResult);
-  free(ptrName);
 
 }
 
