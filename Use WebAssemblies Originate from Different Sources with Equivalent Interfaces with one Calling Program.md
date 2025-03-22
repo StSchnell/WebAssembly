@@ -288,7 +288,7 @@ async function executeWasm(fileName: string): void {
 
 }
 
-async function main(): void {
+function main(): void {
 
   const wasmNames: string[] = [
     "wasmTest2.rs.wasm",  // (memory (;0;) 17)
@@ -300,8 +300,6 @@ async function main(): void {
   });
 
 }
-
-console.log("\n>>> Deno version", Deno.version.deno, " <<<\n");
 
 main();
 ```
