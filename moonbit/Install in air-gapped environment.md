@@ -50,10 +50,9 @@
 - Change to the MOON_HOME\lib\core directory
 
 - Execute the command:<br>
-    Windows: ```moon.exe bundle --warn-list -a --all```<br>
-    Linux: ```moon bundle --warn-list -a --all```
+    ```moon bundle --warn-list -a --all```
 
-
-After completing these steps, Moonbit is ready to use.
+After completing these steps, Moonbit is ready to use.<br>
+Check it with ```moon version -all```
 
 To avoid having to set the environment variable and path each time, this can be done using a batch or shell script file or in the advanced system settings in Windows.
