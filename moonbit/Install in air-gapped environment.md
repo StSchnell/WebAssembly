@@ -18,7 +18,7 @@
 - Unpack node-v\* in the NODE_PATH directory
 
 - Add NODE_PATH\bin to your PATH environment variable:<br>
-    Windows: ```set PATH=%NODE_PATH%\bin;%PATH%```<br>
+    Windows: ```set PATH=%NODE_PATH%;%PATH%```<br>
     Linux: ```export PATH=$NODE_PATH/bin:$PATH```<br>
 
 ## Moonbit
