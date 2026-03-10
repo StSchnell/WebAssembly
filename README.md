@@ -20,10 +20,8 @@ If the code is saved in independent files, e.g. C header files which are include
 
 ## Moonbit
 
-[Moonbit](https://www.moonbitlang.com/) is programming language toolchain for WebAssembly.
-
-* [Moonbit Documentation](https://docs.moonbitlang.com/en/latest/)
-
-* [Moonbit Language Tour](https://tour.moonbitlang.com/)
+[Moonbit](https://www.moonbitlang.com/) is programming language toolchain for WebAssembly. More information are available at [Moonbit Documentation](https://docs.moonbitlang.com/en/latest/) and about the language at teh [Moonbit Language Tour](https://tour.moonbitlang.com/).
 
 * [Install in air-gapped environment](https://github.com/StSchnell/WebAssembly/blob/main/moonbit/Install%20in%20air-gapped%20environment.md)
+
+* [Notepad++ User Defined Language (UDL) scheme](https://github.com/StSchnell/WebAssembly/blob/main/moonbit/notepad%2B%2B%20moonbit%20udl.xml)
