@@ -53,6 +53,6 @@
     ```moon bundle --warn-list -a --all```
 
 After completing these steps, Moonbit is ready to use.<br>
-Check it with ```moon version -all```
+Check it with ```moon version --all```
 
 To avoid having to set the environment variable and path each time, this can be done using a batch or shell script file or in the advanced system settings in Windows.
