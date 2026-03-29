@@ -13,7 +13,7 @@
             <Keywords name="Numbers, suffix1"></Keywords>
             <Keywords name="Numbers, suffix2"></Keywords>
             <Keywords name="Numbers, range"></Keywords>
-            <Keywords name="Operators1">+ - * / % == != &lt; &gt; &lt;= &gt;= &amp;&amp; || ! &amp; | ^ &lt;&lt; &gt;&gt; = += -= *= /= %= ? =&gt; -&gt;</Keywords>
+             <Keywords name="Operators1">! % &amp; ( ) * + , - . / : ; &lt; = &gt; ? [ ] ^ { | } ~ |&gt; .. -&gt; =&gt; == != &lt;= &gt;= &amp;&amp; || += -= *= /= %= &amp;= |= ^= &lt;&lt; &gt;&gt; &lt;&lt;= &gt;&gt;=</Keywords>
             <Keywords name="Operators2"></Keywords>
             <Keywords name="Folders in code1, open">{</Keywords>
             <Keywords name="Folders in code1, middle"></Keywords>
@@ -24,7 +24,7 @@
             <Keywords name="Folders in comment, open"></Keywords>
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close"></Keywords>
-            <Keywords name="Keywords1">and as async break catch const continue defer derive else enum enumview extern false fn fnalias for guard if impl import in is let letrec loop match mut noraise priv pub raise readonly return struct suberror test throw trait traitalias true try type typealias using while with</Keywords>
+            <Keywords name="Keywords1">and as async break catch const continue declare defer derive else enum enumview extern false fn fnalias for guard if impl import in is let letrec loop match mut nobreak noraise priv pub raise readonly return struct suberror test throw trait traitalias true try type typealias using while with</Keywords>
             <Keywords name="Keywords2">Array BigInt Bool Byte Bytes Char Double Float Int Int16 Int64 Json Map Number Option Ref Result String Tuple UInt UInt16 UInt64 Unit</Keywords>
             <Keywords name="Keywords3">abstract alias anyframe anytype asm assert atomic await await comptime constructor define do downcast dyn dynclass dynobj dynrec enumview errdefer export final finally include inherit isnot lazy local macro member method mixin module move namespace noasync opaque orelse override package protected recur ref resume sealed static static super threadlocal typeof unreachable unsafe upcast use use using var virtual void volatile where yield</Keywords>
             <Keywords name="Keywords4"></Keywords>
