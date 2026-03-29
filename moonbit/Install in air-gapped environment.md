@@ -3,6 +3,8 @@
 
 ## Node
 
+**Hint:** The Node installation is only necessary if it is planned to use the MoonBit Pilot.
+
 - [Download Node.js](https://nodejs.org/en/download) from internet<br>
   Windows: node-v\*-win-x64.zip<br>
   Linux: node-v\*-linux-x64.tar.xz
@@ -56,3 +58,14 @@ After completing these steps, Moonbit is ready to use.<br>
 Check it with ```moon version --all```
 
 To avoid having to set the environment variable and path each time, this can be done using a batch or shell script file or in the advanced system settings in Windows.
+
+If it is not possible to use the AI support by MoonBit Pilot, the file ```moon-pilot.bat``` can be renamed.<br>
+In this case the command ```moon pilot``` returns an error and the check ```moon version --all``` delivers:
+
+```
+moon 0.1.20260309 (f21b520 2026-03-09) moon.exe
+moonc v0.8.3+cd28f524e-dev (2026-03-09) moonc.exe
+moonrun 0.1.20260309 (f21b520 2026-03-09) moonrun.exe
+
+Feature flags enabled: rr_moon_pkg
+```
