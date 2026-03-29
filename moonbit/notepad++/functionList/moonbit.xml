@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<NotepadPlus>
+    <functionList>
+        <parser displayName="MoonBit" id="moonbit" commentExpr="//.*?$">
+
+            <!-- Top-level functions -->
+            <function
+                mainExpr="^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*(<[^>]*>)?\s*\("
+                displayMode="$functionName">
+                <functionName>
+                    <nameExpr>^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                    <nameExprIdx>8</nameExprIdx>
+                </functionName>
+            </function>
+
+            <!-- Modules -->
+            <classRange mainExpr="^\s*mod\s+([a-zA-Z_][a-zA-Z0-9_]*)" openSymbole="{" closeSymbole="}">
+                <className>
+                    <nameExpr>mod\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                    <nameExprIdx>1</nameExprIdx>
+                </className>
+
+                <!-- Nested functions inside module -->
+                <function
+                    mainExpr="^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*(<[^>]*>)?\s*\("
+                    displayMode="$functionName">
+                    <functionName>
+                        <nameExpr>^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                        <nameExprIdx>8</nameExprIdx>
+                    </functionName>
+                </function>
+
+                <!-- Nested impl inside module -->
+                <classRange mainExpr="^\s*impl\s+([a-zA-Z_][a-zA-Z0-9_]*)" openSymbole="{" closeSymbole="}">
+                    <className>
+                        <nameExpr>impl\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                        <nameExprIdx>1</nameExprIdx>
+                    </className>
+
+                    <function
+                        mainExpr="^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*(<[^>]*>)?\s*\("
+                        displayMode="$functionName">
+                        <functionName>
+                            <nameExpr>^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                            <nameExprIdx>8</nameExprIdx>
+                        </functionName>
+                    </function>
+                </classRange>
+
+            </classRange>
+
+            <!-- Structs / Enums / Types -->
+            <classRange mainExpr="^\s*(struct|enum|type)\s+([a-zA-Z_][a-zA-Z0-9_]*)" openSymbole="{" closeSymbole="}">
+                <className>
+                    <nameExpr>(struct|enum|type)\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                    <nameExprIdx>2</nameExprIdx>
+                </className>
+
+                <!-- Methods inside struct/enum/type -->
+                <classRange mainExpr="^\s*impl\s+([a-zA-Z_][a-zA-Z0-9_]*)" openSymbole="{" closeSymbole="}">
+                    <className>
+                        <nameExpr>impl\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                        <nameExprIdx>1</nameExprIdx>
+                    </className>
+
+                    <function
+                        mainExpr="^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*(<[^>]*>)?\s*\("
+                        displayMode="$functionName">
+                        <functionName>
+                            <nameExpr>^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                            <nameExprIdx>8</nameExprIdx>
+                        </functionName>
+                    </function>
+                </classRange>
+
+            </classRange>
+
+            <!-- Traits -->
+            <classRange mainExpr="^\s*trait\s+([a-zA-Z_][a-zA-Z0-9_]*)" openSymbole="{" closeSymbole="}">
+                <className>
+                    <nameExpr>trait\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                    <nameExprIdx>1</nameExprIdx>
+                </className>
+
+                <function
+                    mainExpr="^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*(<[^>]*>)?\s*\("
+                    displayMode="$functionName">
+                    <functionName>
+                        <nameExpr>^\s*(#\[[^\]]*\]\s*)*((pub\s+)?(async\s+)?(unsafe\s+)?(extern\s+)?)(fn)\s+([a-zA-Z_][a-zA-Z0-9_]*)</nameExpr>
+                        <nameExprIdx>8</nameExprIdx>
+                    </functionName>
+                </function>
+
+            </classRange>
+
+        </parser>
+    </functionList>
+</NotepadPlus>
