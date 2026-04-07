@@ -11,6 +11,6 @@ The function list panel is a zone in Notepad++ to display all the functions or m
 
 ## Installation
 
-Copy both files to the appropriate directories of your Notepad++ installation and restart Notepad++.<br><br>
+Copy both files to the appropriate directories of your Notepad++ installation, add the [moonbit.xml function list to overrideMap.xml](https://npp-user-manual.org/docs/config-files/#function-list) and  restart Notepad++.<br><br>
 
 ![Notepad++ with syntax highlighting via user defined language (udl) and function list for MoonBit programming language](https://github.com/StSchnell/WebAssembly/blob/main/images/notepad%2B%2B_udl_functionList.moonbit.jpg)
