@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<NotepadPlus>
+    <functionList>
+        <parser displayName="WebAssembly Text" id="webassemblytext" commentExpr="(?s:;;.*?$)|(?s:\(;.*?;\))">
+            <function mainExpr="(?x) ^ \s* \( \s* func \s+ \$[\w\.\-]+">
+                <functionName>
+                    <nameExpr expr="\$[\w\.\-]+"/>
+                </functionName>
+            </function>
+        </parser>
+    </functionList>
+</NotepadPlus>
